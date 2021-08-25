@@ -4,11 +4,16 @@ def QuickSort(arr):
         pivot = arr[-1]
         left = []
         right = []
+        match = False
         for i in arr:
             if i < pivot:
                 left.append(i)
             elif i > pivot:
                 right.append(i)
+            elif i == pivot and match == False:
+                match = True
+            elif i == pivot and match:
+                left.append(i)
         return left, right
     if len(arr) >= 1:
         left, right = partition(arr)
